@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Frontend</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    #response { margin-top: 1em; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>MCP Frontend</h1>
+  <label for="serverSelect">Select MCP Server:</label>
+  <select id="serverSelect"></select>
+  <button id="connectBtn">Connect</button>
+  <span id="connectStatus"></span>
+  <form id="msgForm" style="display:none;">
+    <input type="text" id="msgInput" placeholder="Type a message..." required />
+    <button type="submit">Send</button>
+  </form>
+  <div id="response"></div>
+  <script>
+    const serverSelect = document.getElementById('serverSelect');
+    const connectBtn = document.getElementById('connectBtn');
+    const connectStatus = document.getElementById('connectStatus');
+    const msgForm = document.getElementById('msgForm');
+    const msgInput = document.getElementById('msgInput');
+    const resDiv = document.getElementById('response');
+
+    // Fetch available servers
+    fetch('http://localhost:3001/api/servers')
+      .then(res => res.json())
+      .then(data => {
+        data.servers.forEach(server => {
+          const opt = document.createElement('option');
+          opt.value = server;
+          opt.textContent = server;
+          serverSelect.appendChild(opt);
+        });
+      });
+
+    connectBtn.onclick = async () => {
+      const server = serverSelect.value;
+      connectStatus.textContent = 'Connecting...';
+      resDiv.textContent = '';
+      try {
+        const res = await fetch('http://localhost:3001/api/connect', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ server })
+        });
+        const data = await res.json();
+        if (data.success) {
+          connectStatus.textContent = 'Connected to ' + server;
+          msgForm.style.display = '';
+        } else {
+          connectStatus.textContent = data.error || 'Failed to connect';
+          msgForm.style.display = 'none';
+        }
+      } catch (err) {
+        connectStatus.textContent = 'Error: ' + err.message;
+        msgForm.style.display = 'none';
+      }
+    };
+
+    msgForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = msgInput.value;
+      resDiv.textContent = 'Loading...';
+      try {
+        const res = await fetch('http://localhost:3001/api/message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg })
+        });
+        const data = await res.json();
+        resDiv.textContent = data.response || data.error;
+      } catch (err) {
+        resDiv.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

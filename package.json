@@ -1,0 +1,88 @@
+{
+  "name": "mcp-use",
+  "type": "module",
+  "version": "0.0.6",
+  "packageManager": "pnpm@10.6.1",
+  "description": "A utility library for integrating Model Context Protocol (MCP) with LangChain, Zod, and related tools. Provides helpers for schema conversion, event streaming, and SDK usage.",
+  "author": "Zane",
+  "license": "MIT",
+  "homepage": "https://github.com/mcp-use/mcp-use-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcp-use/mcp-use-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mcp-use/mcp-use-ts/issues"
+  },
+  "keywords": [
+    "MCP",
+    "Model Context Protocol",
+    "LangChain",
+    "Zod",
+    "schema",
+    "SDK",
+    "eventsource",
+    "AI",
+    "utility",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "pnpm run build",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "release": "npm version patch && git push --follow-tags",
+    "release:minor": "npm version minor && git push --follow-tags",
+    "release:major": "npm version major && git push --follow-tags"
+  },
+  "dependencies": {
+    "@dmitryrechkin/json-schema-to-zod": "^1.0.1",
+    "@langchain/community": "0.3.45",
+    "@langchain/core": "0.3.57",
+    "@langchain/openai": "^0.5.12",
+    "@modelcontextprotocol/sdk": "1.12.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "eventsource": "^3.0.6",
+    "express": "^5.1.0",
+    "fastembed": "^1.14.4",
+    "langchain": "^0.3.27",
+    "lodash-es": "^4.17.21",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "ws": "^8.18.2",
+    "zod": "^3.25.48",
+    "zod-to-json-schema": "^3.24.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.13.2",
+    "@types/lodash-es": "^4.17.12",
+    "@types/ws": "^8.18.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-format": "^1.0.1",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  }
+}
