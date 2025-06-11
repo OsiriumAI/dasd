@@ -14,7 +14,6 @@ app.use(express.json());
 const config = {
   mcpServers: {
         coincap: { command: 'npx', args: ['coincap-mcp'] },
-        coingecko: { command: 'npx', args: ['coingecko-mcp'] },
         binance: { command: 'npx', args: ['binance-mcp'] }
     // Add more servers here as needed
   }
