@@ -25,29 +25,30 @@ const client = MCPClient.fromDict(config);
 let agent: MCPAgent | null = null;
 
 // List available servers
-app.get('/api/servers', (req: Request, res: Response) => {
+app.get('/api/servers', (req, res) => {
   res.json({ servers: Object.keys(config.mcpServers) });
 });
 
 // Connect to a selected server
-app.post('/api/connect', async (req, res) => {
-  const { server } = req.body;
-  type ServerKey = keyof typeof config.mcpServers;
-  if (!server || !(server in config.mcpServers)) {
-    return res.status(400).json({ error: 'Server not found' });
-  }
-  try {
-    await client.createSession(server as ServerKey, true);
-    agent = new MCPAgent({ llm, client, maxSteps: 10 });
-    res.json({ success: true });
-  } catch (err) {
-    const errorMsg = err instanceof Error ? err.message : String(err);
-    res.status(500).json({ error: errorMsg });
-  }
+app.post('/api/connect', function (req, res) {
+  (async () => {
+    const { server } = req.body;
+    if (!server || !(server in config.mcpServers)) {
+      return res.status(400).json({ error: 'Server not found' });
+    }
+    try {
+      await client.createSession(server, true);
+      agent = new MCPAgent({ llm, client, maxSteps: 10 });
+      res.json({ success: true });
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      res.status(500).json({ error: errorMsg });
+    }
+  })();
 });
 
 // Send a message to the MCPAgent (must be connected)
-app.post('/api/message', async (req: Request, res: Response) => {
+app.post('/api/message', async (req, res) => {
   const { message } = req.body;
   if (!agent) {
     res.status(400).json({ error: 'No server connected. Please connect first.' });
