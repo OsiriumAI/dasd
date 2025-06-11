@@ -13,8 +13,9 @@ app.use(express.json());
 // Example config for MCPClient (adjust as needed)
 const config = {
   mcpServers: {
-    playwright: { command: 'npx', args: ['@playwright/mcp@latest'] },
-    airbnb: { command: 'npx', args: ['@openbnb/mcp-server-airbnb'] }
+        coincap: { command: 'npx', args: ['coincap-mcp'] },
+        coingecko: { command: 'npx', args: ['coingecko-mcp'] },
+        binance: { command: 'npx', args: ['binance-mcp'] }
     // Add more servers here as needed
   }
 };
