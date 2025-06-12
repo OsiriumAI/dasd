@@ -17,11 +17,17 @@ const config = {
         binance: { command: 'npx', args: ['binance-mcp'] },
         coinstats: {
           command: "npx",
-          args: ["-y", "@coinstats/coinstats-mcp"],
+          args: ["@coinstats/coinstats-mcp"],
           env: {
             COINSTATS_API_KEY: "3e/2YQNeNkHl5QOy+v+uMUgSR4KPIc/wMZ1QSvey+jA="
           }
-        }
+        },
+        alchemy: {
+      command: "npx",
+      args: [ "@alchemy/mcp-server"],
+      env: {ALCHEMY_API_KEY: "OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v"}
+       },
+       
     // Add more servers here as needed
   }
 };
