@@ -13,13 +13,17 @@ app.use(express.json());
 // Example config for MCPClient (adjust as needed)
 const config = {
   mcpServers: {
-        coincap: { command: "npx", args: ["coincap-mcp"] },
-        binance: { command: "npx", args: ["binance-mcp"] },
-      
-        playwright: {
-          command: "npm",
-          args: ["exec", "--", "@playwright/mcp@latest"]
-        }
+    coincap: { command: "npx", args: ["coincap-mcp"] },
+    binance: { command: "npx", args: ["binance-mcp"] },
+
+    playwright: {
+      command: "npm",
+      args: ["exec", "--", "@playwright/mcp@latest"]
+    },
+    alchemy: {
+      command: "npm",
+      args: ["exec", "--", "@alchemy/mcp-server"],
+    }
     // Add more servers here as needed
   }
 };
