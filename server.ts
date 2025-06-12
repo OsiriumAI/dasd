@@ -15,7 +15,7 @@ const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
-
+    ethers: { command: "npx", args: ["pilso-mcp"] },
     playwright: {
       command: "npm",
       args: ["exec", "--", "@playwright/mcp@latest"]
