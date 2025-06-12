@@ -17,8 +17,8 @@ const config = {
         binance: { command: "npx", args: ["binance-mcp"] },
       
         playwright: {
-          command: "npx",
-          args: ["@playwright/mcp@latest"],
+          command: "npm",
+          args: ["exec", "--", "@playwright/mcp@latest"],
           env: { DISPLAY: ":1" }
         },
     // Add more servers here as needed
