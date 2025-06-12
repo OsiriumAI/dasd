@@ -15,7 +15,7 @@ const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
-    ethers: { command: "npx", args: ["pilso-mcp"] },
+  
     playwright: {
       command: "npm",
       args: ["exec", "--", "@playwright/mcp@latest"]
@@ -46,6 +46,11 @@ app.post('/api/connect', function (req, res) {
       return res.status(400).json({ error: 'Server not found' });
     }
     try {
+      // Cleanup previous session if it exists
+      if (agent) {
+        agent = null;
+      }
+      // Create new session
       await client.createSession(server, true);
       agent = new MCPAgent({ llm, client, maxSteps: 10 });
       res.json({ success: true });
