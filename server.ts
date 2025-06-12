@@ -13,18 +13,18 @@ app.use(express.json());
 // Example config for MCPClient (adjust as needed)
 const config = {
   mcpServers: {
-        coincap: { command: 'npx', args: ['coincap-mcp'] },
-        binance: { command: 'npx', args: ['binance-mcp'] },
+        coincap: { command: "npx", args: ["coincap-mcp"] },
+        binance: { command: "npx", args: ["binance-mcp"] },
         coinstats: {
-          command: "npm",
-          args: ["exec", "--", "@coinstats/coinstats-mcp"],
+          command: "npx",
+          args: ["-y", "@coinstats/coinstats-mcp"],
           env: {
             COINSTATS_API_KEY: "3e/2YQNeNkHl5QOy+v+uMUgSR4KPIc/wMZ1QSvey+jA="
           }
         },
         alchemy: {
-          command: "npm",
-          args: ["exec", "--", "@alchemy/mcp-server"],
+          command: "npx",
+          args: ["-y", "@alchemy/mcp-server"],
           env: { ALCHEMY_API_KEY: "OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v" }
         },
        
