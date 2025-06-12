@@ -15,18 +15,7 @@ const config = {
   mcpServers: {
         coincap: { command: "npx", args: ["coincap-mcp"] },
         binance: { command: "npx", args: ["binance-mcp"] },
-        "coinstats-mcp": {
-          "command": "npx",
-          "args": ["@coinstats/coinstats-mcp@latest"],
-          "env": {
-            "COINSTATS_API_KEY": "3e/2YQNeNkHl5QOy+v+uMUgSR4KPIc/wMZ1QSvey+jA="
-          }
-        },
-        "alchemy_mcp": {
-          command: "npx",
-          args: ["@alchemy/mcp-server@latest"],
-          env: { ALCHEMY_API_KEY: "OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v" }
-        },
+      
         playwright: {
           command: "npx",
           args: ["@playwright/mcp@latest"],
