@@ -14,7 +14,15 @@ app.use(express.json());
 const config = {
   mcpServers: {
         coincap: { command: 'npx', args: ['coincap-mcp'] },
-        binance: { command: 'npx', args: ['binance-mcp'] }
+        coingecko: { command: 'npx', args: ['coingecko-mcp'] },
+        binance: { command: 'npx', args: ['binance-mcp'] },
+        alchemy: {
+          command: 'npx',
+          args: ['-y', '@alchemy/mcp-server'],
+          env: {
+            ALCHEMY_API_KEY: 'OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v'
+          }
+        }
     // Add more servers here as needed
   }
 };
