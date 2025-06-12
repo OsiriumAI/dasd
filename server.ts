@@ -16,24 +16,17 @@ const config = {
         coincap: { command: 'npx', args: ['coincap-mcp'] },
         binance: { command: 'npx', args: ['binance-mcp'] },
         coinstats: {
-      command: "docker",
-      args: [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "COINSTATS_API_KEY",
-        "coinstats/coinstats-mcp"
-      ],
-      env: {
-        COINSTATS_API_KEY: "3e/2YQNeNkHl5QOy+v+uMUgSR4KPIc/wMZ1QSvey+jA="
-      }
-    },
-    alchemy: {
-      command: "npx",
-      args: [ "@alchemy/mcp-server"],
-      env: {ALCHEMY_API_KEY: "OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v"}
-       },
+          command: "npm",
+          args: ["exec", "--", "@coinstats/coinstats-mcp"],
+          env: {
+            COINSTATS_API_KEY: "3e/2YQNeNkHl5QOy+v+uMUgSR4KPIc/wMZ1QSvey+jA="
+          }
+        },
+        alchemy: {
+          command: "npm",
+          args: ["exec", "--", "@alchemy/mcp-server"],
+          env: { ALCHEMY_API_KEY: "OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v" }
+        },
        
     // Add more servers here as needed
   }
