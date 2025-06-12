@@ -19,7 +19,7 @@ const config = {
         playwright: {
           command: "npm",
           args: ["exec", "--", "@playwright/mcp@latest"]
-        },
+        }
     // Add more servers here as needed
   }
 };
