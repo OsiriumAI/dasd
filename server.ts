@@ -17,8 +17,8 @@ const config = {
         coingecko: { command: 'npx', args: ['coingecko-mcp'] },
         binance: { command: 'npx', args: ['binance-mcp'] },
         alchemy: {
-          command: 'npx',
-          args: ['-y', '@alchemy/mcp-server'],
+          command: 'npm',
+          args: ['exec', '--', '@alchemy/mcp-server'],
           env: {
             ALCHEMY_API_KEY: 'OxoJnMMRJXnlTrcqNkv0gPfZwBm6qU2v'
           }
