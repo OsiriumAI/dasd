@@ -20,7 +20,7 @@ const config = {
       "command": "npx",
       "args": [
         "-y", 
-        "@zkosis/evm-mcp-server", 
+        "@zkosis/evm-mcp-server@1.1.7", 
         
       ]
     },
