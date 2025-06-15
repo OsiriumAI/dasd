@@ -15,21 +15,24 @@ const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
- 
-        "dexpaprika": {
+
+    "dexpaprika": {
       "command": "npx",
       "args": ["dexpaprika-mcp"]
     },
-        "mcp-cryptowallet-evm": {
+    "mcp-cryptowallet-evm": {
       "command": "npx",
       "args": [
         "@mcp-dockmaster/mcp-cryptowallet-evm"
       ]
     },
-       "mcp-coincap-jj": {
+    "mcp-coincap-jj": {
       "command": "npx",
-      "args": [        "-y",
-        "@bujaayjaay/mcp-coincap-jj"]
+      "args": ["-y",
+        "@bujaayjaay/mcp-coincap-jj"],
+        "env": {
+  "COINCAP_API_KEY": "fb9c037a3cb5711ff6368e23ccd9fa23bc7ff2c4967550d680622cea9ceae998"
+}
     },
     alchemy: { command: "npm", args: ["exec", "--", "@alchemy/mcp-server"], }
   }
