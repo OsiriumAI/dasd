@@ -15,7 +15,7 @@ const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
-    thirdweb: { command: "pipx", args: ["thirdweb-mcp"] },
+ 
         "dexpaprika": {
       "command": "npx",
       "args": ["dexpaprika-mcp"]
