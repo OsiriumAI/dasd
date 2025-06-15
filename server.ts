@@ -21,12 +21,10 @@ const config = {
       "args": [
         "-y", 
         "@mcpdotdirect/evm-mcp-server", 
-        "--http"
+    
       ]
     },
-        "evm-mcp-sse": {
-      "url": "http://localhost:3001/sse"
-    },
+
     alchemy: {
       command: "npm",
       args: ["exec", "--", "@alchemy/mcp-server"],
