@@ -29,10 +29,7 @@ const config = {
     "mcp-coincap-jj": {
       "command": "npx",
       "args": ["-y",
-        "@bujaayjaay/mcp-coincap-jj"],
-        "env": {
-  "COINCAP_API_KEY": "fb9c037a3cb5711ff6368e23ccd9fa23bc7ff2c4967550d680622cea9ceae998"
-}
+        "@bujaayjaay/mcp-coincap-jj"]
     },
     alchemy: { command: "npm", args: ["exec", "--", "@alchemy/mcp-server"], }
   }
