@@ -10,7 +10,7 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Example config for MCPClient (adjust as needed)
+
 const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
