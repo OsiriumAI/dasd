@@ -21,7 +21,7 @@ const config = {
       "args": [
         "-y", 
         "@zkosis/evm-mcp-server", 
-        "--http"
+        
       ]
     },
 
