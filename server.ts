@@ -15,7 +15,10 @@ const config = {
   mcpServers: {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
-    zkmcpeth: { command: "npm", args: ["exec", "--",  "zk-mcp-ethereum-tools" ] }, 
+        "dexpaprika": {
+      "command": "npx",
+      "args": ["dexpaprika-mcp"]
+    },
     alchemy: { command: "npm", args: ["exec", "--", "@alchemy/mcp-server"], }
   }
 };
