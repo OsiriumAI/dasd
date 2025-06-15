@@ -39,7 +39,8 @@ export class ConnectMCPServerTool extends MCPServerTool<typeof ConnectMCPServerS
         session = await this.manager.client.createSession(serverName)
       }
       this.manager.activeServer = serverName
-      if (this.manager.serverTools[serverName]) {
+      // Always (re)create tools for the selected server
+      if (session && session.connector) {
         const connector: BaseConnector = session.connector
         const tools: StructuredToolInterface[] = await this.manager.adapter.createToolsFromConnectors([connector])
         this.manager.serverTools[serverName] = tools
