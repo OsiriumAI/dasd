@@ -19,6 +19,12 @@ const config = {
       "command": "npx",
       "args": ["dexpaprika-mcp"]
     },
+        "mcp-cryptowallet-evm": {
+      "command": "npx",
+      "args": [
+        "@mcp-dockmaster/mcp-cryptowallet-evm"
+      ]
+    },
     alchemy: { command: "npm", args: ["exec", "--", "@alchemy/mcp-server"], }
   }
 };
