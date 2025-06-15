@@ -25,6 +25,10 @@ const config = {
         "@mcp-dockmaster/mcp-cryptowallet-evm"
       ]
     },
+       "mcp-crypto-price": {
+      "command": "npx",
+      "args": ["-y", "mcp-crypto-price"]
+    },
     alchemy: { command: "npm", args: ["exec", "--", "@alchemy/mcp-server"], }
   }
 };
