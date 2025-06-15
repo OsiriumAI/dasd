@@ -5,8 +5,7 @@ import { MCPAgent, MCPClient } from './index.js';
 import { ChatOpenAI } from '@langchain/openai';
 
 const app = express();
-const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
-const host = '0.0.0.0';
+const port = 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -17,12 +16,12 @@ const config = {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
   
-  "evm-mcp": {
+  "evm-mcp-http": {
       "command": "npx",
       "args": [
         "-y", 
         "@mcpdotdirect/evm-mcp-server", 
-     
+        "--http"
       ]
     },
         "evm-mcp-sse": {
@@ -85,6 +84,6 @@ app.post('/api/message', async (req, res) => {
   }
 });
 
-app.listen(port, host, () => {
-  console.log(`Server listening at http://${host}:${port}`);
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
 });
