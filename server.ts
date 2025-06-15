@@ -16,11 +16,12 @@ const config = {
     coincap: { command: "npx", args: ["coincap-mcp"] },
     binance: { command: "npx", args: ["binance-mcp"] },
   
-    "evm-mcp-server": {
+  "evm-mcp-http": {
       "command": "npx",
       "args": [
-        "-y",
-        "@mcpdotdirect/evm-mcp-server"
+        "-y", 
+        "@mcpdotdirect/evm-mcp-server", 
+        "--http"
       ]
     },
     alchemy: {
